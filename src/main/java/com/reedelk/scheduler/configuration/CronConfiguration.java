@@ -1,9 +1,6 @@
 package com.reedelk.scheduler.configuration;
 
-import com.reedelk.runtime.api.annotation.Combo;
-import com.reedelk.runtime.api.annotation.Default;
-import com.reedelk.runtime.api.annotation.Hint;
-import com.reedelk.runtime.api.annotation.Property;
+import com.reedelk.runtime.api.annotation.*;
 import com.reedelk.runtime.api.component.Implementor;
 import org.osgi.service.component.annotations.Component;
 
@@ -15,10 +12,12 @@ public class CronConfiguration implements Implementor {
     @Property("Expression")
     @Default("* * * ? * *")
     @Hint("* * * ? * *")
+    @PropertyInfo("A valid cron expression to be used to trigger the scheduler e.g <i>0 15 10 * * ? 2020</i> Run at 10:15 a.m., every day during the year 2020.")
     private String expression;
 
     @Property("Time Zone")
     @Default("GMT")
+    @PropertyInfo("Sets the time zone of the cron expression.")
     @Combo(editable = true, prototype = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", comboValues = {
             "Asia/Aden",
             "America/Cuiaba",

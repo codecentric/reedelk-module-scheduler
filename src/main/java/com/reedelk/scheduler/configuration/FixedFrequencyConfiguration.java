@@ -3,6 +3,7 @@ package com.reedelk.scheduler.configuration;
 import com.reedelk.runtime.api.annotation.Default;
 import com.reedelk.runtime.api.annotation.Hint;
 import com.reedelk.runtime.api.annotation.Property;
+import com.reedelk.runtime.api.annotation.PropertyInfo;
 import com.reedelk.runtime.api.component.Implementor;
 import org.osgi.service.component.annotations.Component;
 
@@ -14,10 +15,13 @@ public class FixedFrequencyConfiguration implements Implementor {
     @Property("Frequency")
     @Default("1000")
     @Hint("1000")
+    @PropertyInfo("The frequency at which the Scheduler triggers the flow. " +
+            "The value in this field depends on the <i>Time Unit</i> selected below.")
     private int period;
 
     @Property("Start delay")
     @Hint("1500")
+    @PropertyInfo("The amount of time to wait before triggering the first event.")
     private int delay;
 
     @Property("Time unit")

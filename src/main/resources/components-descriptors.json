@@ -10,6 +10,7 @@
           "displayName": "Scheduling Strategy",
           "propertyName": "strategy",
           "defaultValue": "FIXED_FREQUENCY",
+          "propertyInfo": "There are two possible execution strategies for a scheduler: \u003ci\u003eFixed Frequency\u003c/i\u003e fires flow events at regular intervals. \u003ci\u003eCron\u003c/i\u003e fires events according to the given cron expression.",
           "propertyType": {
             "classname": "com.reedelk.module.descriptor.model.TypeEnumDescriptor",
             "instance": {
@@ -38,6 +39,7 @@
                   "displayName": "Frequency",
                   "propertyName": "period",
                   "defaultValue": "1000",
+                  "propertyInfo": "The frequency at which the Scheduler triggers the flow. The value in this field depends on the \u003ci\u003eTime Unit\u003c/i\u003e selected below.",
                   "propertyType": {
                     "classname": "com.reedelk.module.descriptor.model.TypePrimitiveDescriptor",
                     "instance": {
@@ -51,6 +53,7 @@
                   "displayName": "Start delay",
                   "propertyName": "delay",
                   "defaultValue": "###USE_DEFAULT_VALUE###",
+                  "propertyInfo": "The amount of time to wait before triggering the first event.",
                   "propertyType": {
                     "classname": "com.reedelk.module.descriptor.model.TypePrimitiveDescriptor",
                     "instance": {
@@ -104,6 +107,7 @@
                   "displayName": "Expression",
                   "propertyName": "expression",
                   "defaultValue": "* * * ? * *",
+                  "propertyInfo": "A valid cron expression to be used to trigger the scheduler e.g \u003ci\u003e0 15 10 * * ? 2020\u003c/i\u003e Run at 10:15 a.m., every day during the year 2020.",
                   "propertyType": {
                     "classname": "com.reedelk.module.descriptor.model.TypePrimitiveDescriptor",
                     "instance": {
@@ -116,6 +120,7 @@
                   "displayName": "Time Zone",
                   "propertyName": "timeZone",
                   "defaultValue": "GMT",
+                  "propertyInfo": "Sets the time zone of the cron expression.",
                   "propertyType": {
                     "classname": "com.reedelk.module.descriptor.model.TypeComboDescriptor",
                     "instance": {

@@ -1,10 +1,7 @@
 package com.reedelk.scheduler.component;
 
 
-import com.reedelk.runtime.api.annotation.Default;
-import com.reedelk.runtime.api.annotation.ESBComponent;
-import com.reedelk.runtime.api.annotation.Property;
-import com.reedelk.runtime.api.annotation.When;
+import com.reedelk.runtime.api.annotation.*;
 import com.reedelk.runtime.api.component.AbstractInbound;
 import com.reedelk.scheduler.commons.SchedulerJob;
 import com.reedelk.scheduler.commons.SchedulingStrategyBuilder;
@@ -21,6 +18,8 @@ public class Scheduler extends AbstractInbound {
 
     @Property("Scheduling Strategy")
     @Default("FIXED_FREQUENCY")
+    @PropertyInfo("There are two possible execution strategies for a scheduler: <i>Fixed Frequency</i> fires flow events at regular intervals. " +
+            "<i>Cron</i> fires events according to the given cron expression.")
     private SchedulingStrategy strategy;
 
     @Property("Fixed Frequency Configuration")
