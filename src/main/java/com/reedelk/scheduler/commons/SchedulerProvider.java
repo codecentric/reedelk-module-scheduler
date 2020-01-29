@@ -52,6 +52,12 @@ public class SchedulerProvider {
     }
 
     void deleteJob(JobKey jobKey) {
+        if  (quartzScheduler == null) {
+            // This happens when scheduler is disposed before deleting the Job.
+            // For instance when we stop the runtime with CTRL + C.
+            return;
+        }
+
         try {
             quartzScheduler.checkExists(jobKey);
             quartzScheduler.deleteJob(jobKey);
