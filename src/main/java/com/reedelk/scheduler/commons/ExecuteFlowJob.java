@@ -1,7 +1,6 @@
 package com.reedelk.scheduler.commons;
 
 import com.reedelk.runtime.api.component.InboundEventListener;
-import com.reedelk.runtime.api.component.OnResult;
 import com.reedelk.runtime.api.message.DefaultMessageAttributes;
 import com.reedelk.runtime.api.message.Message;
 import com.reedelk.runtime.api.message.MessageBuilder;
@@ -43,6 +42,6 @@ public class ExecuteFlowJob implements Job {
         }
 
         InboundEventListener inbound = (InboundEventListener) context.get(jobExecutionContext.getJobDetail().getKey().toString());
-        inbound.onEvent(emptyMessage, new OnResult() {});
+        inbound.onEvent(emptyMessage);
     }
 }
