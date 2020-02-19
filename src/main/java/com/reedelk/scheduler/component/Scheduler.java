@@ -21,7 +21,7 @@ import static org.osgi.service.component.annotations.ServiceScope.PROTOTYPE;
 public class Scheduler extends AbstractInbound {
 
     @Example("CRON")
-    @DefaultRenameMe("FIXED_FREQUENCY")
+    @DefaultValue("FIXED_FREQUENCY")
     @InitValue("FIXED_FREQUENCY")
     @Property("Scheduling Strategy")
     @PropertyDescription("There are two possible execution strategies for a scheduler: <i>Fixed Frequency</i> fires flow events at regular intervals. " +

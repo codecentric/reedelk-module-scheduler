@@ -16,7 +16,7 @@ public class CronConfiguration implements Implementor {
     @PropertyDescription("A valid cron expression to be used to trigger the scheduler e.g <i>0 15 10 * * ? 2020</i> Run at 10:15 a.m., every day during the year 2020.")
     private String expression;
 
-    @DefaultRenameMe("System defined timezone")
+    @DefaultValue("System defined timezone")
     @InitValue("GMT")
     @Example("Europe/Brussels")
     @Property("Time Zone")

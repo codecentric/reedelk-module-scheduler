@@ -9,10 +9,11 @@
       "componentPropertyDescriptors": [
         {
           "example": "CRON",
-          "displayName": "Scheduling Strategy",
-          "propertyName": "strategy",
           "initValue": "FIXED_FREQUENCY",
-          "propertyInfo": "There are two possible execution strategies for a scheduler: \u003ci\u003eFixed Frequency\u003c/i\u003e fires flow events at regular intervals. \u003ci\u003eCron\u003c/i\u003e fires events according to the given cron expression.",
+          "displayName": "Scheduling Strategy",
+          "defaultValue": "FIXED_FREQUENCY",
+          "propertyName": "strategy",
+          "propertyDescription": "There are two possible execution strategies for a scheduler: \u003ci\u003eFixed Frequency\u003c/i\u003e fires flow events at regular intervals. \u003ci\u003eCron\u003c/i\u003e fires events according to the given cron expression.",
           "propertyType": {
             "classname": "com.reedelk.module.descriptor.model.TypeEnumDescriptor",
             "instance": {
@@ -26,9 +27,9 @@
           "whenDescriptors": []
         },
         {
+          "initValue": "###USE_DEFAULT_VALUE###",
           "displayName": "Fixed Frequency Configuration",
           "propertyName": "fixedFrequencyConfig",
-          "initValue": "###USE_DEFAULT_VALUE###",
           "propertyType": {
             "classname": "com.reedelk.module.descriptor.model.TypeObjectDescriptor",
             "instance": {
@@ -38,11 +39,12 @@
               "objectProperties": [
                 {
                   "example": "2500",
+                  "initValue": "1000",
                   "hintValue": "1000",
                   "displayName": "Frequency",
+                  "defaultValue": "1000",
                   "propertyName": "period",
-                  "initValue": "1000",
-                  "propertyInfo": "The frequency at which the Scheduler triggers the flow. The value in this field depends on the \u003ci\u003eTime Unit\u003c/i\u003e property.",
+                  "propertyDescription": "The frequency at which the Scheduler triggers the flow. The value in this field depends on the \u003ci\u003eTime Unit\u003c/i\u003e property.",
                   "propertyType": {
                     "classname": "com.reedelk.module.descriptor.model.TypePrimitiveDescriptor",
                     "instance": {
@@ -53,10 +55,11 @@
                 },
                 {
                   "example": "SECONDS",
-                  "displayName": "Time unit",
-                  "propertyName": "timeUnit",
                   "initValue": "MILLISECONDS",
-                  "propertyInfo": "The Time Unit the Frequency value is expressed. Possible values are: \u003cb\u003eMILLISECONDS\u003c/b\u003e, \u003cb\u003eHOURS\u003c/b\u003e, \u003cb\u003eMINUTES\u003c/b\u003e, \u003cb\u003eSECONDS\u003c/b\u003e.",
+                  "displayName": "Time unit",
+                  "defaultValue": "MILLISECONDS",
+                  "propertyName": "timeUnit",
+                  "propertyDescription": "The Time Unit the Frequency value is expressed. Possible values are: \u003cb\u003eMILLISECONDS\u003c/b\u003e, \u003cb\u003eHOURS\u003c/b\u003e, \u003cb\u003eMINUTES\u003c/b\u003e, \u003cb\u003eSECONDS\u003c/b\u003e.",
                   "propertyType": {
                     "classname": "com.reedelk.module.descriptor.model.TypeEnumDescriptor",
                     "instance": {
@@ -73,11 +76,12 @@
                 },
                 {
                   "example": "1500",
+                  "initValue": "###USE_DEFAULT_VALUE###",
                   "hintValue": "1500",
                   "displayName": "Start delay",
+                  "defaultValue": "0",
                   "propertyName": "delay",
-                  "initValue": "###USE_DEFAULT_VALUE###",
-                  "propertyInfo": "The amount of time to wait before triggering the first event.",
+                  "propertyDescription": "The amount of time to wait before triggering the first event.",
                   "propertyType": {
                     "classname": "com.reedelk.module.descriptor.model.TypePrimitiveDescriptor",
                     "instance": {
@@ -98,9 +102,9 @@
           ]
         },
         {
+          "initValue": "###USE_DEFAULT_VALUE###",
           "displayName": "Cron Configuration",
           "propertyName": "cronConfig",
-          "initValue": "###USE_DEFAULT_VALUE###",
           "propertyType": {
             "classname": "com.reedelk.module.descriptor.model.TypeObjectDescriptor",
             "instance": {
@@ -110,11 +114,11 @@
               "objectProperties": [
                 {
                   "example": "0 15 10 * * ? 2020 Run at 10:15 a.m., every day during the year 2020",
+                  "initValue": "* * * ? * *",
                   "hintValue": "* * * ? * *",
                   "displayName": "Expression",
                   "propertyName": "expression",
-                  "initValue": "* * * ? * *",
-                  "propertyInfo": "A valid cron expression to be used to trigger the scheduler e.g \u003ci\u003e0 15 10 * * ? 2020\u003c/i\u003e Run at 10:15 a.m., every day during the year 2020.",
+                  "propertyDescription": "A valid cron expression to be used to trigger the scheduler e.g \u003ci\u003e0 15 10 * * ? 2020\u003c/i\u003e Run at 10:15 a.m., every day during the year 2020.",
                   "propertyType": {
                     "classname": "com.reedelk.module.descriptor.model.TypePrimitiveDescriptor",
                     "instance": {
@@ -125,10 +129,11 @@
                 },
                 {
                   "example": "Europe/Brussels",
-                  "displayName": "Time Zone",
-                  "propertyName": "timeZone",
                   "initValue": "GMT",
-                  "propertyInfo": "Sets the time zone of the cron expression.",
+                  "displayName": "Time Zone",
+                  "defaultValue": "System defined timezone",
+                  "propertyName": "timeZone",
+                  "propertyDescription": "Sets the time zone of the cron expression.",
                   "propertyType": {
                     "classname": "com.reedelk.module.descriptor.model.TypeComboDescriptor",
                     "instance": {

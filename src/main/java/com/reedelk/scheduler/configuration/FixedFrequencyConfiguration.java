@@ -11,7 +11,7 @@ public class FixedFrequencyConfiguration implements Implementor {
 
     @Hint("1000")
     @Example("2500")
-    @DefaultRenameMe("1000")
+    @DefaultValue("1000")
     @InitValue("1000")
     @Property("Frequency")
     @PropertyDescription("The frequency at which the Scheduler triggers the flow. " +
@@ -20,7 +20,7 @@ public class FixedFrequencyConfiguration implements Implementor {
 
     @InitValue("MILLISECONDS")
     @Example("SECONDS")
-    @DefaultRenameMe("MILLISECONDS")
+    @DefaultValue("MILLISECONDS")
     @Property("Time unit")
     @PropertyDescription("The Time Unit the Frequency value is expressed. " +
             "Possible values are: <b>MILLISECONDS</b>, <b>HOURS</b>, <b>MINUTES</b>, <b>SECONDS</b>.")
@@ -28,7 +28,7 @@ public class FixedFrequencyConfiguration implements Implementor {
 
     @Hint("1500")
     @Example("1500")
-    @DefaultRenameMe("0")
+    @DefaultValue("0")
     @Property("Start delay")
     @PropertyDescription("The amount of time to wait before triggering the first event.")
     private int delay;
