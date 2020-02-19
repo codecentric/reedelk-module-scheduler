@@ -9,15 +9,18 @@ import static org.osgi.service.component.annotations.ServiceScope.PROTOTYPE;
 @Component(service = CronConfiguration.class, scope = PROTOTYPE)
 public class CronConfiguration implements Implementor {
 
-    @Property("Expression")
-    @Default("* * * ? * *")
     @Hint("* * * ? * *")
-    @PropertyInfo("A valid cron expression to be used to trigger the scheduler e.g <i>0 15 10 * * ? 2020</i> Run at 10:15 a.m., every day during the year 2020.")
+    @InitValue("* * * ? * *")
+    @Example("0 15 10 * * ? 2020 Run at 10:15 a.m., every day during the year 2020")
+    @Property("Expression")
+    @PropertyDescription("A valid cron expression to be used to trigger the scheduler e.g <i>0 15 10 * * ? 2020</i> Run at 10:15 a.m., every day during the year 2020.")
     private String expression;
 
+    @DefaultRenameMe("System defined timezone")
+    @InitValue("GMT")
+    @Example("Europe/Brussels")
     @Property("Time Zone")
-    @Default("GMT")
-    @PropertyInfo("Sets the time zone of the cron expression.")
+    @PropertyDescription("Sets the time zone of the cron expression.")
     @Combo(editable = true, prototype = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", comboValues = {
             "Asia/Aden",
             "America/Cuiaba",

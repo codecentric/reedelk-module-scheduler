@@ -39,11 +39,30 @@
                   "displayName": "Frequency",
                   "propertyName": "period",
                   "defaultValue": "1000",
-                  "propertyInfo": "The frequency at which the Scheduler triggers the flow. The value in this field depends on the \u003ci\u003eTime Unit\u003c/i\u003e selected below.",
+                  "propertyInfo": "The frequency at which the Scheduler triggers the flow. The value in this field depends on the \u003ci\u003eTime Unit\u003c/i\u003e property.",
                   "propertyType": {
                     "classname": "com.reedelk.module.descriptor.model.TypePrimitiveDescriptor",
                     "instance": {
                       "type": "int"
+                    }
+                  },
+                  "whenDescriptors": []
+                },
+                {
+                  "displayName": "Time unit",
+                  "propertyName": "timeUnit",
+                  "defaultValue": "MILLISECONDS",
+                  "propertyInfo": "The Time Unit the Frequency value is expressed. Possible values are: \u003cb\u003eMILLISECONDS\u003c/b\u003e, \u003cb\u003eHOURS\u003c/b\u003e, \u003cb\u003eMINUTES\u003c/b\u003e, \u003cb\u003eSECONDS\u003c/b\u003e.",
+                  "propertyType": {
+                    "classname": "com.reedelk.module.descriptor.model.TypeEnumDescriptor",
+                    "instance": {
+                      "nameAndDisplayNameMap": {
+                        "MILLISECONDS": "Milliseconds (default)",
+                        "HOURS": "Hours",
+                        "SECONDS": "Seconds",
+                        "MINUTES": "Minutes"
+                      },
+                      "type": "java.lang.Enum"
                     }
                   },
                   "whenDescriptors": []
@@ -58,24 +77,6 @@
                     "classname": "com.reedelk.module.descriptor.model.TypePrimitiveDescriptor",
                     "instance": {
                       "type": "int"
-                    }
-                  },
-                  "whenDescriptors": []
-                },
-                {
-                  "displayName": "Time unit",
-                  "propertyName": "timeUnit",
-                  "defaultValue": "MILLISECONDS",
-                  "propertyType": {
-                    "classname": "com.reedelk.module.descriptor.model.TypeEnumDescriptor",
-                    "instance": {
-                      "nameAndDisplayNameMap": {
-                        "MILLISECONDS": "Milliseconds (default)",
-                        "HOURS": "Hours",
-                        "SECONDS": "Seconds",
-                        "MINUTES": "Minutes"
-                      },
-                      "type": "java.lang.Enum"
                     }
                   },
                   "whenDescriptors": []
