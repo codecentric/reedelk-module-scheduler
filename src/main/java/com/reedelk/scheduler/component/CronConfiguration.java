@@ -1,4 +1,4 @@
-package com.reedelk.scheduler.configuration;
+package com.reedelk.scheduler.component;
 
 import com.reedelk.runtime.api.annotation.*;
 import com.reedelk.runtime.api.component.Implementor;

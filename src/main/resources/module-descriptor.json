@@ -35,7 +35,7 @@
             "instance": {
               "shared": "NO",
               "collapsible": "NO",
-              "typeFullyQualifiedName": "com.reedelk.scheduler.configuration.FixedFrequencyConfiguration",
+              "typeFullyQualifiedName": "com.reedelk.scheduler.component.FixedFrequencyConfiguration",
               "objectProperties": [
                 {
                   "name": "period",
@@ -110,7 +110,7 @@
             "instance": {
               "shared": "NO",
               "collapsible": "NO",
-              "typeFullyQualifiedName": "com.reedelk.scheduler.configuration.CronConfiguration",
+              "typeFullyQualifiedName": "com.reedelk.scheduler.component.CronConfiguration",
               "objectProperties": [
                 {
                   "name": "expression",

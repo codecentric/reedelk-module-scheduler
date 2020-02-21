@@ -5,7 +5,6 @@ import com.reedelk.runtime.api.message.DefaultMessageAttributes;
 import com.reedelk.runtime.api.message.Message;
 import com.reedelk.runtime.api.message.MessageBuilder;
 import com.reedelk.scheduler.component.Scheduler;
-import com.reedelk.scheduler.configuration.SchedulerAttribute;
 import org.quartz.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

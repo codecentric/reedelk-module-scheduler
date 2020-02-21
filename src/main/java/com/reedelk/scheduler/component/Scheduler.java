@@ -5,9 +5,7 @@ import com.reedelk.runtime.api.annotation.*;
 import com.reedelk.runtime.api.component.AbstractInbound;
 import com.reedelk.scheduler.commons.SchedulerJob;
 import com.reedelk.scheduler.commons.SchedulingStrategyBuilder;
-import com.reedelk.scheduler.configuration.CronConfiguration;
-import com.reedelk.scheduler.configuration.FixedFrequencyConfiguration;
-import com.reedelk.scheduler.configuration.SchedulingStrategy;
+import com.reedelk.scheduler.commons.SchedulingStrategy;
 import org.osgi.service.component.annotations.Component;
 
 import static org.osgi.service.component.annotations.ServiceScope.PROTOTYPE;

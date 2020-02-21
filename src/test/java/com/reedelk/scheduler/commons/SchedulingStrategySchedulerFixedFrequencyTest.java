@@ -1,7 +1,7 @@
 package com.reedelk.scheduler.commons;
 
 import com.reedelk.runtime.api.component.InboundEventListener;
-import com.reedelk.scheduler.configuration.FixedFrequencyConfiguration;
+import com.reedelk.scheduler.component.FixedFrequencyConfiguration;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;

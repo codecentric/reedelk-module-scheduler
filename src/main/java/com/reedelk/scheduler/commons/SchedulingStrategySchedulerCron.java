@@ -2,7 +2,7 @@ package com.reedelk.scheduler.commons;
 
 import com.reedelk.runtime.api.commons.StringUtils;
 import com.reedelk.runtime.api.component.InboundEventListener;
-import com.reedelk.scheduler.configuration.CronConfiguration;
+import com.reedelk.scheduler.component.CronConfiguration;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Trigger;
