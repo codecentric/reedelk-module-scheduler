@@ -9,28 +9,28 @@ import static org.osgi.service.component.annotations.ServiceScope.PROTOTYPE;
 @Component(service = FixedFrequencyConfiguration.class, scope = PROTOTYPE)
 public class FixedFrequencyConfiguration implements Implementor {
 
+    @Property("Frequency")
     @Hint("1000")
     @Example("2500")
-    @DefaultValue("1000")
     @InitValue("1000")
-    @Property("Frequency")
-    @PropertyDescription("The frequency at which the Scheduler triggers the flow. " +
+    @DefaultValue("1000")
+    @Description("The frequency at which the Scheduler triggers the flow. " +
             "The value in this field depends on the <i>Time Unit</i> property.")
     private int period = 1000;
 
-    @InitValue("MILLISECONDS")
-    @Example("SECONDS")
-    @DefaultValue("MILLISECONDS")
     @Property("Time unit")
-    @PropertyDescription("The Time Unit the Frequency value is expressed. " +
+    @Example("SECONDS")
+    @InitValue("MILLISECONDS")
+    @DefaultValue("MILLISECONDS")
+    @Description("The Time Unit the Frequency value is expressed. " +
             "Possible values are: <b>MILLISECONDS</b>, <b>HOURS</b>, <b>MINUTES</b>, <b>SECONDS</b>.")
     private TimeUnit timeUnit;
 
+    @Property("Start delay")
     @Hint("1500")
     @Example("1500")
     @DefaultValue("0")
-    @Property("Start delay")
-    @PropertyDescription("The amount of time to wait before triggering the first event.")
+    @Description("The amount of time to wait before triggering the first event.")
     private int delay;
 
     public int getPeriod() {

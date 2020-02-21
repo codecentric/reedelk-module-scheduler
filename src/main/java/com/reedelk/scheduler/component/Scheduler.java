@@ -12,19 +12,18 @@ import org.osgi.service.component.annotations.Component;
 
 import static org.osgi.service.component.annotations.ServiceScope.PROTOTYPE;
 
-@ModuleComponent(
-        name = "Scheduler",
-        description = "The Scheduler component can be used to fire flow events at " +
+@ModuleComponent("Scheduler")
+@Description("The Scheduler component can be used to fire flow events at " +
                 "regular intervals or fires events according to the given cron expression. " +
                 "The Scheduler is an Inbound component and it can only be placed at the beginning of a flow.")
 @Component(service = Scheduler.class, scope = PROTOTYPE)
 public class Scheduler extends AbstractInbound {
 
-    @Example("CRON")
-    @DefaultValue("FIXED_FREQUENCY")
-    @InitValue("FIXED_FREQUENCY")
     @Property("Scheduling Strategy")
-    @PropertyDescription("There are two possible execution strategies for a scheduler: <i>Fixed Frequency</i> fires flow events at regular intervals. " +
+    @Example("CRON")
+    @InitValue("FIXED_FREQUENCY")
+    @DefaultValue("FIXED_FREQUENCY")
+    @Description("There are two possible execution strategies for a scheduler: <i>Fixed Frequency</i> fires flow events at regular intervals. " +
             "<i>Cron</i> fires events according to the given cron expression.")
     private SchedulingStrategy strategy;
 
