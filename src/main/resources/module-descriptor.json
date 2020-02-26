@@ -1,4 +1,5 @@
 {
+  "name": "module-scheduler",
   "components": [
     {
       "hidden": false,
@@ -24,6 +25,7 @@
               "type": "java.lang.Enum"
             }
           },
+          "autocompleteVariables": [],
           "whens": []
         },
         {
@@ -51,6 +53,7 @@
                       "type": "int"
                     }
                   },
+                  "autocompleteVariables": [],
                   "whens": []
                 },
                 {
@@ -72,6 +75,7 @@
                       "type": "java.lang.Enum"
                     }
                   },
+                  "autocompleteVariables": [],
                   "whens": []
                 },
                 {
@@ -88,12 +92,14 @@
                       "type": "int"
                     }
                   },
+                  "autocompleteVariables": [],
                   "whens": []
                 }
               ],
               "type": "com.reedelk.module.descriptor.model.TypeObjectDescriptor$TypeObject"
             }
           },
+          "autocompleteVariables": [],
           "whens": [
             {
               "propertyName": "strategy",
@@ -125,6 +131,7 @@
                       "type": "java.lang.String"
                     }
                   },
+                  "autocompleteVariables": [],
                   "whens": []
                 },
                 {
@@ -732,12 +739,14 @@
                       "type": "com.reedelk.runtime.api.annotation.Combo"
                     }
                   },
+                  "autocompleteVariables": [],
                   "whens": []
                 }
               ],
               "type": "com.reedelk.module.descriptor.model.TypeObjectDescriptor$TypeObject"
             }
           },
+          "autocompleteVariables": [],
           "whens": [
             {
               "propertyName": "strategy",
@@ -748,5 +757,5 @@
       ]
     }
   ],
-  "autocompleteContributors": []
+  "autocompleteItems": []
 }
