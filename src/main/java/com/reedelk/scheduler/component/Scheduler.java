@@ -17,7 +17,7 @@ import static org.osgi.service.component.annotations.ServiceScope.PROTOTYPE;
 @Component(service = Scheduler.class, scope = PROTOTYPE)
 public class Scheduler extends AbstractInbound {
 
-    @Property("Scheduling Strategy")
+    @Property("Strategy")
     @Example("CRON")
     @InitValue("FIXED_FREQUENCY")
     @DefaultValue("FIXED_FREQUENCY")
