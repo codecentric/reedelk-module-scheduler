@@ -10,6 +10,7 @@ import org.quartz.TriggerBuilder;
 
 import java.util.TimeZone;
 
+import static com.reedelk.scheduler.component.CronConfiguration.SYSTEM_TIMEZONE;
 import static org.quartz.CronScheduleBuilder.cronSchedule;
 
 class SchedulingStrategySchedulerCron implements SchedulingStrategyScheduler {
@@ -39,7 +40,7 @@ class SchedulingStrategySchedulerCron implements SchedulingStrategyScheduler {
 
     TimeZone getTimeZoneOrDefault() {
         String timeZone = configuration.getTimeZone();
-        if (StringUtils.isBlank(timeZone)) {
+        if (StringUtils.isBlank(timeZone) || SYSTEM_TIMEZONE.equals(timeZone)) {
             return TimeZone.getDefault();
         } else {
             return TimeZone.getTimeZone(timeZone);

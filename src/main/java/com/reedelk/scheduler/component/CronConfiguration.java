@@ -9,6 +9,8 @@ import static org.osgi.service.component.annotations.ServiceScope.PROTOTYPE;
 @Component(service = CronConfiguration.class, scope = PROTOTYPE)
 public class CronConfiguration implements Implementor {
 
+    public static final String SYSTEM_TIMEZONE = "System timezone";
+
     @Property("Expression")
     @Hint("* * * ? * *")
     @InitValue("* * * ? * *")
@@ -17,11 +19,11 @@ public class CronConfiguration implements Implementor {
     private String expression;
 
     @Property("Time Zone")
-    @InitValue("GMT")
     @Example("Europe/Brussels")
-    @DefaultValue("System defined timezone")
+    @DefaultValue(SYSTEM_TIMEZONE)
     @Description("Sets the time zone of the cron expression.")
     @Combo(editable = true, prototype = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", comboValues = {
+            SYSTEM_TIMEZONE,
             "Asia/Aden",
             "America/Cuiaba",
             "Etc/GMT+9",
