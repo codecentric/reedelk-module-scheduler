@@ -1,10 +1,11 @@
-package com.reedelk.scheduler.commons;
+package com.reedelk.scheduler.internal.scheduler;
 
 import com.reedelk.runtime.api.exception.ConfigurationException;
 import com.reedelk.scheduler.component.CronConfiguration;
 import com.reedelk.scheduler.component.FixedFrequencyConfiguration;
+import com.reedelk.scheduler.component.SchedulingStrategy;
 
-import static com.reedelk.scheduler.commons.Messages.Scheduler.*;
+import static com.reedelk.scheduler.internal.scheduler.Messages.Scheduler.*;
 
 public class SchedulingStrategyBuilder {
 

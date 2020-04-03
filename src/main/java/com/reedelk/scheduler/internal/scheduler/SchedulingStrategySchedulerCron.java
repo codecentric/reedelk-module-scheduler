@@ -1,4 +1,4 @@
-package com.reedelk.scheduler.commons;
+package com.reedelk.scheduler.internal.scheduler;
 
 import com.reedelk.runtime.api.commons.StringUtils;
 import com.reedelk.runtime.api.component.InboundEventListener;

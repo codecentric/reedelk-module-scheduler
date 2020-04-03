@@ -1,7 +1,7 @@
-package com.reedelk.scheduler.commons;
+package com.reedelk.scheduler.internal.scheduler;
 
 import com.reedelk.runtime.api.component.InboundEventListener;
-import com.reedelk.scheduler.component.FixedFrequencyConfiguration;
+import com.reedelk.scheduler.component.CronConfiguration;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -9,10 +9,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.quartz.JobDetail;
 import org.quartz.Trigger;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class SchedulingStrategySchedulerFixedFrequencyTest {
+class SchedulingStrategySchedulerCronTest {
 
     @Mock
     private InboundEventListener listener;
@@ -20,8 +21,9 @@ class SchedulingStrategySchedulerFixedFrequencyTest {
     @Test
     void shouldCorrectlyScheduleJob() {
         // Given
-        FixedFrequencyConfiguration configuration = new FixedFrequencyConfiguration();
-        SchedulingStrategySchedulerFixedFrequency strategy = strategyWith(configuration);
+        CronConfiguration configuration = new CronConfiguration();
+        configuration.setExpression("* * * ? * *");
+        SchedulingStrategySchedulerCron strategy = strategyWith(configuration);
 
         // When
         strategy.schedule(listener);
@@ -30,9 +32,9 @@ class SchedulingStrategySchedulerFixedFrequencyTest {
         verify(strategy).scheduleJob(any(InboundEventListener.class), any(JobDetail.class), any(Trigger.class));
     }
 
-    private SchedulingStrategySchedulerFixedFrequency strategyWith(FixedFrequencyConfiguration configuration) {
-        SchedulingStrategySchedulerFixedFrequency strategy =
-                spy(new SchedulingStrategySchedulerFixedFrequency(configuration));
+    private SchedulingStrategySchedulerCron strategyWith(CronConfiguration configuration) {
+        SchedulingStrategySchedulerCron strategy =
+                spy(new SchedulingStrategySchedulerCron(configuration));
         doNothing().when(strategy).scheduleJob(any(InboundEventListener.class), any(JobDetail.class), any(Trigger.class));
         return strategy;
     }

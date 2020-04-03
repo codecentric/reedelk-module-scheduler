@@ -1,4 +1,4 @@
-package com.reedelk.scheduler.commons;
+package com.reedelk.scheduler.component;
 
 import com.reedelk.runtime.api.annotation.DisplayName;
 

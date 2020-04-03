@@ -1,6 +1,6 @@
-package com.reedelk.scheduler;
+package com.reedelk.scheduler.internal;
 
-import com.reedelk.scheduler.commons.SchedulerProvider;
+import com.reedelk.scheduler.internal.scheduler.SchedulerProvider;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
 

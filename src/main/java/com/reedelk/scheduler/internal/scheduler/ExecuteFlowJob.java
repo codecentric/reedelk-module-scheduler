@@ -1,4 +1,4 @@
-package com.reedelk.scheduler.commons;
+package com.reedelk.scheduler.internal.scheduler;
 
 import com.reedelk.runtime.api.component.InboundEventListener;
 import com.reedelk.runtime.api.message.DefaultMessageAttributes;
@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.reedelk.scheduler.commons.Messages.Scheduler.ERROR_QUARTZ_CONTEXT;
+import static com.reedelk.scheduler.internal.scheduler.Messages.Scheduler.ERROR_QUARTZ_CONTEXT;
 
 public class ExecuteFlowJob implements Job {
 

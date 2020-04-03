@@ -1,4 +1,4 @@
-package com.reedelk.scheduler.commons;
+package com.reedelk.scheduler.internal.scheduler;
 
 import com.reedelk.runtime.api.component.InboundEventListener;
 import com.reedelk.runtime.api.exception.ESBException;
@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 
-import static com.reedelk.scheduler.commons.Messages.Scheduler.*;
+import static com.reedelk.scheduler.internal.scheduler.Messages.Scheduler.*;
 
 public class SchedulerProvider {
 
