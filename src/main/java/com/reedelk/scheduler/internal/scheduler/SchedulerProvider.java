@@ -1,7 +1,7 @@
 package com.reedelk.scheduler.internal.scheduler;
 
 import com.reedelk.runtime.api.component.InboundEventListener;
-import com.reedelk.runtime.api.exception.ESBException;
+import com.reedelk.runtime.api.exception.PlatformException;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 import org.slf4j.Logger;
@@ -22,7 +22,7 @@ public class SchedulerProvider {
             quartzScheduler.start();
         } catch (SchedulerException exception) {
             String message = ERROR_QUARTZ_SCHEDULER_INIT.format(exception.getMessage());
-            throw new ESBException(message, exception);
+            throw new PlatformException(message, exception);
         }
     }
 
@@ -77,7 +77,7 @@ public class SchedulerProvider {
             getContext().ifPresent(schedulerContext -> schedulerContext.remove(jobID));
             deleteJob(job.getKey());
             String message = ERROR_SCHEDULE_JOB.format(jobID, exception.getMessage());
-            throw new ESBException(message, exception);
+            throw new PlatformException(message, exception);
         }
     }
 
