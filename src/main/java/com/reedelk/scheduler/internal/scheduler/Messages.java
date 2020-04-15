@@ -1,16 +1,10 @@
 package com.reedelk.scheduler.internal.scheduler;
 
+import com.reedelk.runtime.api.commons.FormattedMessage;
+
 public class Messages {
 
     private Messages() {
-    }
-
-    private static String formatMessage(String template, Object ...args) {
-        return String.format(template, args);
-    }
-
-    interface FormattedMessage {
-        String format(Object ...args);
     }
 
     public enum Scheduler implements FormattedMessage {
@@ -24,15 +18,15 @@ public class Messages {
         ERROR_CONFIG_CRON_MISSING("Scheduler 'cronConfig' property must be defined in the JSON definition when 'strategy' is %s"),
         ERROR_CONFIG_SCHEDULING_STRATEGY("Scheduler 'strategy' value=[%s] is not valid.");
 
-        private String msg;
+        private String message;
 
-        Scheduler(String msg) {
-            this.msg = msg;
+        Scheduler(String message) {
+            this.message = message;
         }
 
         @Override
-        public String format(Object... args) {
-            return formatMessage(msg, args);
+        public String template() {
+            return message;
         }
     }
 }
