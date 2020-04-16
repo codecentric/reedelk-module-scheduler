@@ -1,7 +1,6 @@
 package com.reedelk.scheduler.internal.scheduler;
 
 import com.reedelk.runtime.api.component.InboundEventListener;
-import com.reedelk.runtime.api.message.DefaultMessageAttributes;
 import com.reedelk.runtime.api.message.Message;
 import com.reedelk.runtime.api.message.MessageBuilder;
 import com.reedelk.scheduler.component.Scheduler;
@@ -10,9 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.Map;
 
+import static com.reedelk.runtime.api.commons.ImmutableMap.of;
 import static com.reedelk.scheduler.internal.scheduler.Messages.Scheduler.ERROR_QUARTZ_CONTEXT;
 
 public class ExecuteFlowJob implements Job {
@@ -21,12 +20,11 @@ public class ExecuteFlowJob implements Job {
 
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        Map<String, Serializable> attributesMap = new HashMap<>();
-        attributesMap.put(SchedulerAttribute.firedAt(), jobExecutionContext.getFireTime().getTime());
-        DefaultMessageAttributes attributes = new DefaultMessageAttributes(Scheduler.class, attributesMap);
+        Map<String, Serializable> attributesMap =
+                of(SchedulerAttribute.firedAt(), jobExecutionContext.getFireTime().getTime());
 
-        Message emptyMessage = MessageBuilder.get()
-                .attributes(attributes)
+        Message emptyMessage = MessageBuilder.get(Scheduler.class)
+                .attributes(attributesMap)
                 .empty()
                 .build();
 
