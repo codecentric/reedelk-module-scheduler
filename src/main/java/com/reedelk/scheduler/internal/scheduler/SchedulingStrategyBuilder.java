@@ -1,10 +1,12 @@
 package com.reedelk.scheduler.internal.scheduler;
 
-import com.reedelk.runtime.api.exception.ConfigurationException;
 import com.reedelk.scheduler.component.CronConfiguration;
 import com.reedelk.scheduler.component.FixedFrequencyConfiguration;
+import com.reedelk.scheduler.component.Scheduler;
 import com.reedelk.scheduler.component.SchedulingStrategy;
 
+import static com.reedelk.runtime.api.commons.ConfigurationPreconditions.requireNotNull;
+import static com.reedelk.runtime.api.commons.ConfigurationPreconditions.requireTrue;
 import static com.reedelk.scheduler.internal.scheduler.Messages.Scheduler.*;
 
 public class SchedulingStrategyBuilder {
@@ -28,21 +30,21 @@ public class SchedulingStrategyBuilder {
     }
 
     public SchedulingStrategyScheduler build() {
+        String message = ERROR_CONFIG_SCHEDULING_STRATEGY.format(strategy);
+        boolean isAcceptedStrategy =
+                SchedulingStrategy.FIXED_FREQUENCY.equals(strategy) ||
+                        SchedulingStrategy.CRON.equals(strategy);
+        requireTrue(Scheduler.class, isAcceptedStrategy, message);
+
         if (SchedulingStrategy.FIXED_FREQUENCY.equals(strategy)) {
-            if (fixedFrequencyConfig == null) {
-                String message = ERROR_CONFIG_FIXED_FREQUENCY_MISSING.format(SchedulingStrategy.FIXED_FREQUENCY.toString());
-                throw new ConfigurationException(message);
-            }
+            message = ERROR_CONFIG_FIXED_FREQUENCY_MISSING.format(SchedulingStrategy.FIXED_FREQUENCY.toString());
+            requireNotNull(Scheduler.class, fixedFrequencyConfig, message);
             return new SchedulingStrategySchedulerFixedFrequency(fixedFrequencyConfig);
-        } else if (SchedulingStrategy.CRON.equals(strategy)) {
-            if (cronConfig == null) {
-                String message = ERROR_CONFIG_CRON_MISSING.format(SchedulingStrategy.CRON.toString());
-                throw new ConfigurationException(message);
-            }
-            return new SchedulingStrategySchedulerCron(cronConfig);
+
         } else {
-            String message = ERROR_CONFIG_SCHEDULING_STRATEGY.format(strategy);
-            throw new ConfigurationException(message);
+            message = ERROR_CONFIG_CRON_MISSING.format(SchedulingStrategy.CRON.toString());
+            requireNotNull(Scheduler.class, cronConfig, message);
+            return new SchedulingStrategySchedulerCron(cronConfig);
         }
     }
 
