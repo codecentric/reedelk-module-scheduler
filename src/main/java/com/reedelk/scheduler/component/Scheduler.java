@@ -3,6 +3,7 @@ package com.reedelk.scheduler.component;
 
 import com.reedelk.runtime.api.annotation.*;
 import com.reedelk.runtime.api.component.AbstractInbound;
+import com.reedelk.scheduler.internal.attribute.SchedulerAttributes;
 import com.reedelk.scheduler.internal.scheduler.SchedulerJob;
 import com.reedelk.scheduler.internal.scheduler.SchedulingStrategyBuilder;
 import org.osgi.service.component.annotations.Component;
@@ -10,6 +11,7 @@ import org.osgi.service.component.annotations.Component;
 import static org.osgi.service.component.annotations.ServiceScope.PROTOTYPE;
 
 @ModuleComponent("Scheduler")
+@ComponentOutput(attributes = SchedulerAttributes.class, payload = { Void.class })
 @Description("The Scheduler component can be used to fire flow events at " +
                 "regular intervals or fires events according to the given cron expression. " +
                 "The Scheduler is an Inbound component and it can only be placed at the beginning of a flow.")
