@@ -1,11 +1,11 @@
-package com.reedelk.scheduler.component;
+package de.codecentric.reedelk.scheduler.component;
 
 
-import com.reedelk.runtime.api.annotation.*;
-import com.reedelk.runtime.api.component.AbstractInbound;
-import com.reedelk.scheduler.internal.attribute.SchedulerAttributes;
-import com.reedelk.scheduler.internal.scheduler.SchedulerJob;
-import com.reedelk.scheduler.internal.scheduler.SchedulingStrategyBuilder;
+import de.codecentric.reedelk.runtime.api.annotation.*;
+import de.codecentric.reedelk.runtime.api.component.AbstractInbound;
+import de.codecentric.reedelk.scheduler.internal.attribute.SchedulerAttributes;
+import de.codecentric.reedelk.scheduler.internal.scheduler.SchedulerJob;
+import de.codecentric.reedelk.scheduler.internal.scheduler.SchedulingStrategyBuilder;
 import org.osgi.service.component.annotations.Component;
 
 import static org.osgi.service.component.annotations.ServiceScope.PROTOTYPE;

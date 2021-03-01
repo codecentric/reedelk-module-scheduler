@@ -1,4 +1,4 @@
-package com.reedelk.scheduler.internal.scheduler;
+package de.codecentric.reedelk.scheduler.internal.scheduler;
 
 import org.quartz.JobKey;
 

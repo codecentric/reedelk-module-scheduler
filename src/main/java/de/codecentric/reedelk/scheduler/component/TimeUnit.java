@@ -1,6 +1,6 @@
-package com.reedelk.scheduler.component;
+package de.codecentric.reedelk.scheduler.component;
 
-import com.reedelk.runtime.api.annotation.DisplayName;
+import de.codecentric.reedelk.runtime.api.annotation.DisplayName;
 
 public enum TimeUnit {
 

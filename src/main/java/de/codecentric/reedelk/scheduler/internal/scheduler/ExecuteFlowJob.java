@@ -1,16 +1,14 @@
-package com.reedelk.scheduler.internal.scheduler;
+package de.codecentric.reedelk.scheduler.internal.scheduler;
 
-import com.reedelk.runtime.api.component.InboundEventListener;
-import com.reedelk.runtime.api.message.Message;
-import com.reedelk.runtime.api.message.MessageAttributes;
-import com.reedelk.runtime.api.message.MessageBuilder;
-import com.reedelk.scheduler.component.Scheduler;
-import com.reedelk.scheduler.internal.attribute.SchedulerAttributes;
+import de.codecentric.reedelk.runtime.api.component.InboundEventListener;
+import de.codecentric.reedelk.runtime.api.message.Message;
+import de.codecentric.reedelk.runtime.api.message.MessageAttributes;
+import de.codecentric.reedelk.runtime.api.message.MessageBuilder;
+import de.codecentric.reedelk.scheduler.component.Scheduler;
+import de.codecentric.reedelk.scheduler.internal.attribute.SchedulerAttributes;
 import org.quartz.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import static com.reedelk.scheduler.internal.scheduler.Messages.Scheduler.ERROR_QUARTZ_CONTEXT;
 
 public class ExecuteFlowJob implements Job {
 
@@ -30,7 +28,7 @@ public class ExecuteFlowJob implements Job {
         try {
             context = jobExecutionContext.getScheduler().getContext();
         } catch (SchedulerException exception) {
-            String message = ERROR_QUARTZ_CONTEXT.format(exception.getMessage());
+            String message = Messages.Scheduler.ERROR_QUARTZ_CONTEXT.format(exception.getMessage());
             logger.error(message, exception);
             throw new JobExecutionException(exception);
         }

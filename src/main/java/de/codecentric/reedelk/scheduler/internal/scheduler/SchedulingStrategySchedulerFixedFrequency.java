@@ -1,8 +1,8 @@
-package com.reedelk.scheduler.internal.scheduler;
+package de.codecentric.reedelk.scheduler.internal.scheduler;
 
-import com.reedelk.runtime.api.component.InboundEventListener;
-import com.reedelk.scheduler.component.FixedFrequencyConfiguration;
-import com.reedelk.scheduler.component.TimeUnit;
+import de.codecentric.reedelk.runtime.api.component.InboundEventListener;
+import de.codecentric.reedelk.scheduler.component.FixedFrequencyConfiguration;
+import de.codecentric.reedelk.scheduler.component.TimeUnit;
 import org.quartz.*;
 
 import java.util.Date;

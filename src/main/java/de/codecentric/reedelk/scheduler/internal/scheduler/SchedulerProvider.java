@@ -1,15 +1,13 @@
-package com.reedelk.scheduler.internal.scheduler;
+package de.codecentric.reedelk.scheduler.internal.scheduler;
 
-import com.reedelk.runtime.api.component.InboundEventListener;
-import com.reedelk.runtime.api.exception.PlatformException;
+import de.codecentric.reedelk.runtime.api.component.InboundEventListener;
+import de.codecentric.reedelk.runtime.api.exception.PlatformException;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
-
-import static com.reedelk.scheduler.internal.scheduler.Messages.Scheduler.*;
 
 public class SchedulerProvider {
 
@@ -21,7 +19,7 @@ public class SchedulerProvider {
             quartzScheduler = new StdSchedulerFactory().getScheduler();
             quartzScheduler.start();
         } catch (SchedulerException exception) {
-            String message = ERROR_QUARTZ_SCHEDULER_INIT.format(exception.getMessage());
+            String message = Messages.Scheduler.ERROR_QUARTZ_SCHEDULER_INIT.format(exception.getMessage());
             throw new PlatformException(message, exception);
         }
     }
@@ -42,7 +40,7 @@ public class SchedulerProvider {
                 }
                 quartzScheduler = null;
             } catch (SchedulerException exception) {
-                String message = ERROR_QUARTZ_SCHEDULER_DISPOSE.format(exception.getMessage());
+                String message = Messages.Scheduler.ERROR_QUARTZ_SCHEDULER_DISPOSE.format(exception.getMessage());
                 logger.warn(message, exception);
             }
         }
@@ -62,7 +60,7 @@ public class SchedulerProvider {
             quartzScheduler.checkExists(jobKey);
             quartzScheduler.deleteJob(jobKey);
         } catch (SchedulerException exception) {
-            String message = ERROR_DELETE_JOB.format(jobKey.toString(), exception.getMessage());
+            String message = Messages.Scheduler.ERROR_DELETE_JOB.format(jobKey.toString(), exception.getMessage());
             logger.warn(message, exception);
         }
     }
@@ -76,7 +74,7 @@ public class SchedulerProvider {
             // Cleanup
             getContext().ifPresent(schedulerContext -> schedulerContext.remove(jobID));
             deleteJob(job.getKey());
-            String message = ERROR_SCHEDULE_JOB.format(jobID, exception.getMessage());
+            String message = Messages.Scheduler.ERROR_SCHEDULE_JOB.format(jobID, exception.getMessage());
             throw new PlatformException(message, exception);
         }
     }
@@ -85,7 +83,7 @@ public class SchedulerProvider {
         try {
             return Optional.ofNullable(quartzScheduler.getContext());
         } catch (SchedulerException exception) {
-            String message = ERROR_QUARTZ_CONTEXT.format(exception.getMessage());
+            String message = Messages.Scheduler.ERROR_QUARTZ_CONTEXT.format(exception.getMessage());
             logger.warn(message, exception);
             return Optional.empty();
         }

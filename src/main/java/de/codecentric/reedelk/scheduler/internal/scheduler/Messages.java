@@ -1,6 +1,6 @@
-package com.reedelk.scheduler.internal.scheduler;
+package de.codecentric.reedelk.scheduler.internal.scheduler;
 
-import com.reedelk.runtime.api.commons.FormattedMessage;
+import de.codecentric.reedelk.runtime.api.commons.FormattedMessage;
 
 public class Messages {
 

@@ -1,13 +1,13 @@
-package com.reedelk.scheduler.internal.scheduler;
+package de.codecentric.reedelk.scheduler.internal.scheduler;
 
-import com.reedelk.scheduler.component.CronConfiguration;
-import com.reedelk.scheduler.component.FixedFrequencyConfiguration;
-import com.reedelk.scheduler.component.Scheduler;
-import com.reedelk.scheduler.component.SchedulingStrategy;
+import de.codecentric.reedelk.scheduler.component.CronConfiguration;
+import de.codecentric.reedelk.scheduler.component.FixedFrequencyConfiguration;
+import de.codecentric.reedelk.scheduler.component.Scheduler;
+import de.codecentric.reedelk.scheduler.component.SchedulingStrategy;
 
-import static com.reedelk.runtime.api.commons.ComponentPrecondition.Configuration.requireNotNull;
-import static com.reedelk.runtime.api.commons.ComponentPrecondition.Configuration.requireTrue;
-import static com.reedelk.scheduler.internal.scheduler.Messages.Scheduler.*;
+import static de.codecentric.reedelk.runtime.api.commons.ComponentPrecondition.Configuration.requireNotNull;
+import static de.codecentric.reedelk.runtime.api.commons.ComponentPrecondition.Configuration.requireTrue;
+import static de.codecentric.reedelk.scheduler.internal.scheduler.Messages.Scheduler.*;
 
 public class SchedulingStrategyBuilder {
 

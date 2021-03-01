@@ -1,8 +1,8 @@
-package com.reedelk.scheduler.internal.scheduler;
+package de.codecentric.reedelk.scheduler.internal.scheduler;
 
-import com.reedelk.runtime.api.commons.StringUtils;
-import com.reedelk.runtime.api.component.InboundEventListener;
-import com.reedelk.scheduler.component.CronConfiguration;
+import de.codecentric.reedelk.runtime.api.commons.StringUtils;
+import de.codecentric.reedelk.runtime.api.component.InboundEventListener;
+import de.codecentric.reedelk.scheduler.component.CronConfiguration;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Trigger;
@@ -10,7 +10,6 @@ import org.quartz.TriggerBuilder;
 
 import java.util.TimeZone;
 
-import static com.reedelk.scheduler.component.CronConfiguration.SYSTEM_TIMEZONE;
 import static org.quartz.CronScheduleBuilder.cronSchedule;
 
 class SchedulingStrategySchedulerCron implements SchedulingStrategyScheduler {
@@ -40,7 +39,7 @@ class SchedulingStrategySchedulerCron implements SchedulingStrategyScheduler {
 
     TimeZone getTimeZoneOrDefault() {
         String timeZone = configuration.getTimeZone();
-        if (StringUtils.isBlank(timeZone) || SYSTEM_TIMEZONE.equals(timeZone)) {
+        if (StringUtils.isBlank(timeZone) || CronConfiguration.SYSTEM_TIMEZONE.equals(timeZone)) {
             return TimeZone.getDefault();
         } else {
             return TimeZone.getTimeZone(timeZone);
